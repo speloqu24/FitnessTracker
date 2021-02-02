@@ -18,8 +18,14 @@ const workoutSchema = new Schema(
           required: "Enter a type",
         },
         // make name and duration required as well
-        name: String,
-        duration: Number,
+        name: {
+          type: String,
+          required: "Please enter the name of the workout",
+        },
+        duration: {
+          type: Number,
+          required: "Enter a duration",
+        },
         weight: Number,
         reps: Number,
         sets: Number,

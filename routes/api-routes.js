@@ -30,12 +30,17 @@ router.get("/api/workouts/range", (req, res) => {
 
 //Sets or PUSHES -> which one to use? from mongoose
 
-// router.put("/api/workouts/:id", (req, res) => {
-//     Workout.findByIdAndUpdate(
-//         req.params.id,
-//         req.body
-//     )
-// })
+router.put("/api/workouts/:id", (req, res) => {
+  Workout.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, data) => {
+      if (err) return res.status(500).send(err);
+      return res.send(data);
+    }
+  );
+});
 
 router.post("/api/workouts", (req, res) => {
   const { body } = req;
