@@ -37,7 +37,9 @@ const workoutSchema = new Schema(
 );
 
 //TODO: work on virtuals
+
 // workoutSchema.virtual("totalDuration").get(function () {
+
 //   this.exercises[i].duration;
 //   // forEach or for loop through each exercise duration add them all and return
 
