@@ -31,21 +31,17 @@ const workoutSchema = new Schema(
         distance: Number,
       },
     ],
-    totalDuration: {
-      type: Number,
-      default: 0,
-    },
-  }
-  // opts
+  },
+  opts
 );
 
-//TODO: work on virtuals (totalDuration)
-
-// workoutSchema.virtual("totalDuration").get(function () {
-//   return this.exercises[i].duration;
-//   //   //   // forEach or for loop through each exercise duration add them all and return
-//   //   //   return this.email.slice(this.email.indexOf("@") + 1);
-// });
+// virtual that does not get stored in MongoDb, but does increment!
+workoutSchema.virtual("totalDuration").get(function () {
+  return this.exercises.reduce((total, exercise) => {
+    return total + exercise.duration;
+    //accumulator  // currentValue
+  }, 0);
+});
 
 const Workout = mongoose.model("Workout", workoutSchema);
 
