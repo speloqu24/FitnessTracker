@@ -1,9 +1,7 @@
 const router = require("express").Router();
 const { Workout } = require("../models");
 
-// TODO: Aggregates if you want
-
-// Getting seed workouts
+// JSON return of all the workouts by ID, included ones added
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
     .then((data) => {
@@ -15,9 +13,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// MONGOOSE V
-
-//
+// SORTS returned data by MOST RECENT exercise
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
     .sort({ day: -1 })
@@ -31,30 +27,11 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-//TODO: Updated workout
-
-//Sets or PUSHES -> which one to use? from mongoose
-
-// Creates an object workout under a specific ID
-// router.put("/api/workouts/:id", (req, res) => {
-//   Workout.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     { new: true },
-//     (err, data) => {
-//       console.log(data);
-//       if (err) return res.status(500).send(err);
-//       return res.send(data);
-//     }
-//   );
-// });
-
-// Creates an exercise object
+// ADDS exercise to the designated ID
 router.put("/api/workouts/:id", (req, res) => {
-  Workout.findOneAndUpdate(
-    { __id: req.params.id },
+  Workout.findByIdAndUpdate(
+    req.params.id,
     {
-      $inc: { totalDuration: req.body.duration },
       $push: { exercises: req.body },
     },
     { new: true }
@@ -67,6 +44,7 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
+// POSTS new exercises
 router.post("/api/workouts", (req, res) => {
   const { body } = req;
   Workout.create(body)

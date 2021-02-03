@@ -17,7 +17,6 @@ const workoutSchema = new Schema(
           type: String,
           required: "Enter a type",
         },
-        // make name and duration required as well
         name: {
           type: String,
           required: "Please enter the name of the workout",
@@ -32,18 +31,20 @@ const workoutSchema = new Schema(
         distance: Number,
       },
     ],
-  },
-  opts
+    totalDuration: {
+      type: Number,
+      default: 0,
+    },
+  }
+  // opts
 );
 
-//TODO: work on virtuals
+//TODO: work on virtuals (totalDuration)
 
 // workoutSchema.virtual("totalDuration").get(function () {
-
-//   this.exercises[i].duration;
-//   // forEach or for loop through each exercise duration add them all and return
-
-//   return this.email.slice(this.email.indexOf("@") + 1);
+//   return this.exercises[i].duration;
+//   //   //   // forEach or for loop through each exercise duration add them all and return
+//   //   //   return this.email.slice(this.email.indexOf("@") + 1);
 // });
 
 const Workout = mongoose.model("Workout", workoutSchema);
