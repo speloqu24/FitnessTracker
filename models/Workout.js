@@ -1,10 +1,8 @@
-// creates the workout Schema in workout
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
-
 const opts = { toJSON: { virtuals: true } };
 
+// MONGO schema
 const workoutSchema = new Schema(
   {
     day: {
@@ -35,7 +33,7 @@ const workoutSchema = new Schema(
   opts
 );
 
-// virtual that does not get stored in MongoDb, but does increment!
+// VIRTUAL that does not get stored in MongoDb, but does increment!
 workoutSchema.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;

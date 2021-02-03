@@ -40,6 +40,7 @@ router.put("/api/workouts/:id", (req, res) => {
       res.json(data);
     })
     .catch((err) => {
+      // Internal server error
       res.status(500).send(err);
     });
 });
@@ -52,7 +53,7 @@ router.post("/api/workouts", (req, res) => {
       res.json(data);
     })
     .catch((err) => {
-      //
+      // Bad request error
       res.status(400).json(err);
     });
 });
