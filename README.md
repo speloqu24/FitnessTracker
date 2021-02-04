@@ -2,7 +2,7 @@
 
 Samantha Peloquin
 
-> Deployed Application: TBD
+> Deployed Application:
 
 ## Table of Contents
 
