@@ -2,14 +2,14 @@
 
 Samantha Peloquin
 
-> Deployed Application:
+> Deployed Application: https://github.com/speloqu24/FitnessTracker
 
 ## Table of Contents
 
 - [Project Description](#description)
 - [Installation Details](#installation)
 - [Usage](#usage)
-- [Contribution](#contribution)
+- [Images](#images)
 - [License](#license)
 - [Questions](#questions)
 
@@ -31,13 +31,19 @@ Samantha Peloquin
 
 ---
 
-> This can be used for individuals looking to abe accontable for their workout progress.
+> This can be used for individuals looking to abe accountable for their workout progress.
 
-## Contribution
+## Images
 
 ---
 
-> no
+<img src="public/images/FitnessTracker_Home.png"
+     alt="Tracker_Home"
+     style="float: left; margin-right: 10px;" />
+
+<img src="public/images/FitnessTracker_Stats.png"
+     alt="Tracker_Home"
+     style="float: left; margin-right: 10px;" />
 
 ## License
 
